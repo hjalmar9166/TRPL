@@ -16,6 +16,16 @@ fn main() {
     // You can optionally experiment here.
 }
 
+// If the number of apples is less than or equal to 40,
+// the price is 2 * the number of apples. Otherwise it's
+// the same as the number of apples.
+fn calculate_price_of_apples(num_apples: i32) -> i32 {
+    if num_apples <= 40 {
+        return num_apples * 2
+    }
+    num_apples
+}
+
 // Don't change the tests!
 #[cfg(test)]
 mod tests {
