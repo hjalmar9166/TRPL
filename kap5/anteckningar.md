@@ -55,4 +55,7 @@ impl Rectangle {
     }
 }
 ```
-En metods först parameter är alltid en referens till `self`; structurinstansen i fråga.
+En struct kan ha flera `impl`-block. En metods först parameter är alltid en referens till `self`; structurinstansen i fråga. Även här kan vi göra `&mut` för att kunna förändra structens värden. En metod kan ha samma namn som ett fält i samma struct. På detta vis kan vi göra getters för privata fält.
+
+### Associaerade funktioner
+Alla funktioner definierade i ett `impl`-block är associerade till struct:en blocket tillhör. Men alla är inte metoder. Man kan skapa associerade funktioner utan `self`-parametern som inte behöver en instans av struct:en för att anropas. Detta kan exempelvis användas för konstructorer. En konstructor returnerar `self`. Man kommer åt dessa associerade funktioner via `<structnamn>::<funktionsnamn>(<...>);`.
