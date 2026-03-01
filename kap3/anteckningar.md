@@ -1,4 +1,4 @@
-## Kapitel 2
+## Kapitel 3
 ### Oföränderlighet och `mut`
 Som redan etablerat är variabler oföränderliga (immutable) som standard. Man kan skapa en föränderlig variabel genom att använda nyckelordet `mut`.
 

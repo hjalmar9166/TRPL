@@ -1,3 +1,4 @@
+## Kapitel 2
 För att importera ett bibliotek från standardbiblioteket skriver man `use std::<biblioteksnamn>;` högst upp i filen. `std::io` är IO-biblioteket.
 
 För att deklarera en ny variabel används `let`. Variabler i Rust är som standard oföränderliga (immutable) men kan göras föränderliga med nyckelordet `mut` på följande vis:
