@@ -3,7 +3,7 @@ En *crate* är den minsta mängden kod Rust-kompilatorn betraktar vid ett och sa
 
 Ett *package* är en bunt crates som tillsammans utgör någon funktionalitet. Ett package innehåller alltid en Cargo.toml-fil som beskriver hur alla crates ska byggas. Ett package kan innehålla flera binary crates men max en library crate, och måste innehålla minst en crate av någon sort.
 
-## Hierarkin av en crate
+### Hierarkin av en crate
 * Kompilatorn kollar först i crate-roten `src/main.rs` eller `src/lib.rs`.
 * I rotfilen kan man deklarera moduler med `mod`.
   * Dessa moduler finns i måsvingeparenteser i samma fil, i `src/<modulnamn>.rs` eller i `src/<modulnamn>/mod.rs`.
@@ -23,17 +23,17 @@ backyard
     ├── garden.rs
     └── main.rs
 
-## Sökvägar
+### Sökvägar
 Sökvägar kan antingen vara absoluta och börjar då med nyckelordet `crate` och sedan dess namn, eller relativa och använder då `self` eller `super` eller en identifierare i dess modul. Både absoluta och relativa sökvägar följs av en eller fler identifierare och separeras med `::`.
 
 Saker i en privat submodul kan inte användas av dess förälder men submodulen kan använda dess förälders saker.
 
 Standardpraxis är att ett bibliotek har en binary crate med precis så mycket som krävs i binaren för att starta paketet.
 
-## Pubika structs och enums
+### Publika structs och enums
 Om man använder `pub` när man deklarerar en struct blir denna publik men dess fält är fortfarande privata. Gör man å andra sidan en enum publik blir alla dess varianter också publika per automatik.
 
-## `use`
+### `use`
 Med nyckelordet `use` kan man föra in sökvägar så att man inte måste skriva hela sökvägen varje gång man vill använda en funtion eller typ från en annan modul. För funktioner är satandard att man för dess föräldermodul in i räckvidden medan för structs, enums mm. är standard att föra in själva saken. Undantaget är om två saker från olika moduler har samma namn, då måste man alltid ha med föräldermodulen.
 
 Nyckelordet `as` låter en byta namn på saker man tar in med `use`. Detta kan också användas för att lösa problemet med likadana namn.
