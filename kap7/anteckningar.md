@@ -32,3 +32,23 @@ Standardpraxis är att ett bibliotek har en binary crate med precis så mycket s
 
 ## Pubika structs och enums
 Om man använder `pub` när man deklarerar en struct blir denna publik men dess fält är fortfarande privata. Gör man å andra sidan en enum publik blir alla dess varianter också publika per automatik.
+
+## `use`
+Med nyckelordet `use` kan man föra in sökvägar så att man inte måste skriva hela sökvägen varje gång man vill använda en funtion eller typ från en annan modul. För funktioner är satandard att man för dess föräldermodul in i räckvidden medan för structs, enums mm. är standard att föra in själva saken. Undantaget är om två saker från olika moduler har samma namn, då måste man alltid ha med föräldermodulen.
+
+Nyckelordet `as` låter en byta namn på saker man tar in med `use`. Detta kan också användas för att lösa problemet med likadana namn.
+
+Namn som tas in med `use` är privata för den räckvid de förs in i men kan också göras publika med `pub`.
+
+För att använda externa packet måste man lägga till paketet under dependencies i `Cargo.toml`.
+
+Om man vill använda flera moduler från samma supermodule kan man använda nästlade sökvägar med sakerna man vill ha i måsvingeparenteser och separerade med komma. Ex.:
+```Rust
+use std::cmp::Ordering;
+use std::io;
+```
+kan instället skrivas
+```Rust
+use std::{cmp::Ordering, io};
+```
+Nästlade sökvägar kan användas på alla nivåer av sökvägen. Om man vill ha alla publika saker från en modul kan man använda `* `-operatorn.

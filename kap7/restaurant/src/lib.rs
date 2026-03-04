@@ -1,19 +1,4 @@
-mod front_of_house { // Deklarerar en modul.
-    pub mod hosting { // Deklarerar en submodul.
-        pub fn add_to_waitlist() {} // Funktioner i modulen.
-
-        fn seat_at_table() {}
-    }
-
-
-    mod serving {
-        fn take_order() {}
-
-        fn serve_order() {}
-
-        fn take_payment() {}
-    }
-}
+mod front_of_house; // Deklarerar en modul.
 
 mod back_of_house {
     pub struct Breakfast {
@@ -42,6 +27,8 @@ mod back_of_house {
 
     fn cook_order() {}
 }
+
+fn deliver_order() {}
 
 pub fn eat_at_restaurant() {
     // Absolut sökväg:
